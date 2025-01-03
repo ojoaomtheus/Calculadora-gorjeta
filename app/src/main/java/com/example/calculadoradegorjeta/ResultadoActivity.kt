@@ -1,6 +1,8 @@
 package com.example.calculadoradegorjeta
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -28,9 +30,17 @@ class ResultadoActivity : AppCompatActivity() {
         val tvPrice = findViewById<TextView>(R.id.price)
         val tvResultado = findViewById<TextView>(R.id.porcetagem_valor)
         val tvtotalValor = findViewById<TextView>(R.id.total_valor)
+        val btnNovoCal = findViewById<Button>(R.id.novo_calculo)
 
         tvPrice.text = valorPrice.toString()
         tvResultado.text = resultado.toString()
         tvtotalValor.text = totalValor.toString()
+
+        btnNovoCal.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+            finish()
+        }
     }
 }
