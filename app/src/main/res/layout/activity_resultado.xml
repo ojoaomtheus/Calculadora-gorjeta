@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_rst"
         android:orientation="horizontal"
-        android:layout_marginTop="16mm"
+        android:layout_marginTop="20mm"
         android:layout_marginEnd="10dp"
         android:layout_marginStart="10dp"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
@@ -40,7 +40,7 @@
             android:text="Valor:"
             android:layout_gravity="center"
             android:textColor="@color/white"
-            android:textSize="30sp" />
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/price"
@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:maxLength="9"
-            android:textSize="40sp"
+            android:textSize="30sp"
             android:textColor="@color/white"
             android:textStyle="bold"
             tools:text="150.00" />
@@ -73,15 +73,15 @@
             android:textColor="@color/white"
             android:text="Porcentagem:"
             android:layout_gravity="center"
-            android:textSize="30sp" />
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/porcetagem_valor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:maxLength="7"
-            android:textSize="40sp"
+            android:maxLength="5"
+            android:textSize="30sp"
             android:textColor="@color/white"
             android:textStyle="bold"
             tools:text="50.00" />
@@ -104,10 +104,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Valor:"
+            android:text="Valor total:"
             android:textColor="@color/white"
             android:layout_gravity="center"
-            android:textSize="30sp"  />
+            android:textSize="25sp"  />
 
         <TextView
             android:id="@+id/total_valor"
@@ -115,7 +115,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:maxLength="9"
-            android:textSize="40sp"
+            android:textSize="30sp"
             android:textColor="@color/white"
             android:textStyle="bold"
             tools:text="200.00" />

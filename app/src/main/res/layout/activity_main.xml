@@ -26,7 +26,7 @@
             android:textColor="@color/black"
             android:textSize="30sp"
             android:textStyle="bold"
-            android:text="Calculadora de Gorjeta"/>
+            android:text="Calculadora de Gorjeta."/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -116,7 +116,7 @@
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:background="@drawable/rounded_img_first"
-            android:src="@drawable/tela" />
+            android:src="@drawable/main" />
 
 
     </LinearLayout>
