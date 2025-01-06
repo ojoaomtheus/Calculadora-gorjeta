@@ -130,7 +130,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:backgroundTint="@color/secondColor"
-        android:text="Novo Calculo"
+        android:text="Novo Cálculo"
         android:textStyle="bold"
         android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
