@@ -36,21 +36,22 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
             android:layout_weight="1"
-            android:text="Valor:"
+            android:text="Valor total:"
             android:layout_gravity="center"
             android:textColor="@color/white"
             android:textSize="25sp" />
 
         <TextView
-            android:id="@+id/price"
+            android:id="@+id/tv_total_valor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
             android:gravity="center"
-            android:maxLength="9"
+            android:maxLength="8"
             android:textSize="30sp"
             android:textColor="@color/white"
-            android:textStyle="bold"
             tools:text="150.00" />
 
     </LinearLayout>
@@ -70,20 +71,21 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_marginStart="4dp"
             android:textColor="@color/white"
             android:text="Porcentagem:"
             android:layout_gravity="center"
             android:textSize="25sp" />
 
         <TextView
-            android:id="@+id/porcetagem_valor"
+            android:id="@+id/tv_porcetagem_valor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:layout_marginEnd="4dp"
             android:maxLength="5"
             android:textSize="30sp"
             android:textColor="@color/white"
-            android:textStyle="bold"
             tools:text="50.00" />
 
     </LinearLayout>
@@ -104,32 +106,32 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Valor total:"
+            android:layout_marginStart="4dp"
+            android:text="Valor por pessoa:"
             android:textColor="@color/white"
             android:layout_gravity="center"
             android:textSize="25sp"  />
 
         <TextView
-            android:id="@+id/total_valor"
+            android:id="@+id/tv_valor_por_pessoa"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:maxLength="9"
+            android:maxLength="6"
+            android:layout_marginEnd="4dp"
             android:textSize="30sp"
             android:textColor="@color/white"
-            android:textStyle="bold"
             tools:text="200.00" />
 
     </LinearLayout>
 
     <Button
-        android:id="@+id/novo_calculo"
+        android:id="@+id/btn_novo_calculo"
         android:layout_width="match_parent"
         android:layout_height="52dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:backgroundTint="@color/secondColor"
         android:text="Novo Cálculo"
         android:textStyle="bold"
         android:textSize="18dp"

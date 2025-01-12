@@ -22,19 +22,21 @@ class ResultadoActivity : AppCompatActivity() {
 
         val valorPrice = intent.getFloatExtra("KEY_PRICE", 0f)
         val valorPorcentagem = intent.getFloatExtra("KEY_PORCENTAGEM", 0f)
+        val valorPorPessoa = intent.getFloatExtra("KEY_PESSOAS", 0f)
 
-        val resultado = valorPrice * (valorPorcentagem / 100)
-        val totalValor = resultado + valorPrice
+        val porcentagem = valorPrice * (valorPorcentagem / 100)
+        val totalValor = porcentagem + valorPrice
+        val valorPessoa = totalValor / valorPorPessoa
 
 
-        val tvPrice = findViewById<TextView>(R.id.price)
-        val tvResultado = findViewById<TextView>(R.id.porcetagem_valor)
-        val tvtotalValor = findViewById<TextView>(R.id.total_valor)
-        val btnNovoCal = findViewById<Button>(R.id.novo_calculo)
+        val tvPrecoPessoa = findViewById<TextView>(R.id.tv_valor_por_pessoa)
+        val tvPorcentagem = findViewById<TextView>(R.id.tv_porcetagem_valor)
+        val tvtotalValor = findViewById<TextView>(R.id.tv_total_valor)
+        val btnNovoCal = findViewById<Button>(R.id.btn_novo_calculo)
 
-        tvPrice.text = valorPrice.toString()
-        tvResultado.text = resultado.toString()
-        tvtotalValor.text = totalValor.toString()
+        tvtotalValor.text = ("%.2f").format(totalValor)
+        tvPorcentagem.text = ("%.2f").format(porcentagem)
+        tvPrecoPessoa.text = ("%.2f").format(valorPessoa)
 
         btnNovoCal.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
