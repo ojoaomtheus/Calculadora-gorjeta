@@ -11,8 +11,8 @@
         android:id="@+id/header_inicio"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:gravity="center"
         android:background="@drawable/gradiente_bg"
+        android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,31 +23,37 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:text="Calculadora de gorjeta."
             android:textColor="@color/black"
             android:textSize="30sp"
-            android:textStyle="bold"
-            android:text="Calculadora de Gorjeta."/>
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="26dp"
+            android:layout_marginTop="16dp"
             android:text="Quer saber quanto de gorjeta vai gastar?"
-            android:textSize="16dp"
             android:textColor="@color/white"
-            />
+            android:textSize="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/black"
+            android:text="Preecha abaixo para calcular sua gorjeta."/>
 
 
     </LinearLayout>
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout2"
+        android:id="@+id/til_preco"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,104 +65,163 @@
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_bg"
             android:drawableEnd="@drawable/payments"
-            android:hint="Preço (EX: 125.50)"
+            android:hint="Preço (ex: 125.50)"
             android:inputType="numberDecimal" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
+        android:id="@+id/til_pessoas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
+        app:layout_constraintTop_toBottomOf="@+id/til_preco">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_numero_pessoas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_bg"
+            android:drawableEnd="@drawable/people"
+            android:hint="Numero de pessoas (ex: 15)"
+            android:inputType="number"
+            android:maxLength="2" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_porcentagem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_pessoas">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edt_porcetagem_tip"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableEnd="@drawable/percent"
             android:background="@drawable/rounded_bg"
-            android:hint="Porcentagem (EX: 10)"
-            android:inputType="numberDecimal" />
+            android:drawableEnd="@drawable/percent"
+            android:hint="Porcentagem (ex: 10)"
+            android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:id="@+id/calcular"
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:backgroundTint="@color/secondColor"
-        android:text="Calcular"
-        android:textStyle="bold"
-        android:textSize="18dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_centro"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
 
-        />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_esquerda"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="16dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.34" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_direita"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="16dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.66" />
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/calcular"
-        app:layout_constraintTop_toBottomOf="@+id/btn_25">
-
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/btn_linpar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_opcao_dois">
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="match_parent"
             android:background="@drawable/rounded_img_first"
             android:src="@drawable/main" />
 
-
     </LinearLayout>
 
+
     <Button
-        android:id="@+id/btn_10"
-        android:layout_width="wrap_content"
+        android:id="@+id/btn_opcao_um"
+        android:layout_width="0dp"
         android:layout_height="52dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="4dp"
         android:backgroundTint="@color/secondColor"
         android:text="10%"
-        android:textSize="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/guide_esquerda"
+        app:layout_constraintStart_toStartOf="@id/til_porcentagem"
+        app:layout_constraintTop_toBottomOf="@+id/til_porcentagem" />
 
     <Button
-        android:id="@+id/btn_25"
-        android:layout_width="wrap_content"
+        android:id="@+id/btn_opcao_dois"
+        android:layout_width="0dp"
         android:layout_height="52dp"
+        android:layout_marginTop="16dp"
         android:backgroundTint="@color/secondColor"
-        android:textSize="16dp"
-        android:text="25%"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-        app:layout_constraintEnd_toStartOf="@+id/btn_50"
-        app:layout_constraintStart_toEndOf="@+id/btn_10"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+        android:gravity="center"
+        android:layout_marginEnd="2dp"
+        android:layout_marginStart="2dp"
+        android:text="15%"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/guide_direita"
+        app:layout_constraintStart_toEndOf="@+id/guide_esquerda"
+        app:layout_constraintTop_toBottomOf="@+id/til_porcentagem" />
 
     <Button
-        android:id="@+id/btn_50"
-        android:layout_width="wrap_content"
+        android:id="@+id/btn_opcao_tres"
+        android:layout_width="0dp"
         android:layout_height="52dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="4dp"
         android:backgroundTint="@color/secondColor"
-        android:text="50%"
-        android:textSize="16dp"
+        android:text="20%"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@id/til_porcentagem"
+        app:layout_constraintStart_toStartOf="@+id/guide_direita"
+        app:layout_constraintTop_toBottomOf="@+id/til_porcentagem" />
 
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+    <Button
+        android:id="@+id/btn_calcular"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Calcular"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+        app:layout_constraintStart_toStartOf="@+id/guide_centro" />
+
+    <Button
+        android:id="@+id/btn_linpar"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="4dp"
+        android:text="Limpar"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guide_centro"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

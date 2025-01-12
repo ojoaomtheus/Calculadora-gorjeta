@@ -23,26 +23,35 @@ class MainActivity : AppCompatActivity() {
 
         val inputPrice = findViewById<TextInputEditText>(R.id.edt_price_tip)
         val inputPorcentagem = findViewById<TextInputEditText>(R.id.edt_porcetagem_tip)
-        val btnCalcular = findViewById<Button>(R.id.calcular)
-        val btnPorcento10 = findViewById<Button>(R.id.btn_10)
-        val btnPorcento25 = findViewById<Button>(R.id.btn_25)
-        val btnPorcento50 = findViewById<Button>(R.id.btn_50)
+        val inputPessoas = findViewById<TextInputEditText>(R.id.edt_numero_pessoas)
+        val btnLimpar = findViewById<Button>(R.id.btn_linpar)
+        val btnCalcular = findViewById<Button>(R.id.btn_calcular)
+        val btnOpcaoUm = findViewById<Button>(R.id.btn_opcao_um)
+        val btnOpcaoDois = findViewById<Button>(R.id.btn_opcao_dois)
+        val btnOpcaoTres = findViewById<Button>(R.id.btn_opcao_tres)
 
-        btnPorcento10.setOnClickListener {
+        btnOpcaoUm.setOnClickListener {
             inputPorcentagem.setText("10")
         }
-        btnPorcento25.setOnClickListener {
-            inputPorcentagem.setText("25")
+        btnOpcaoDois.setOnClickListener {
+            inputPorcentagem.setText("15")
         }
-        btnPorcento50.setOnClickListener {
-            inputPorcentagem.setText("50")
+        btnOpcaoTres.setOnClickListener {
+            inputPorcentagem.setText("20")
+        }
+
+        btnLimpar.setOnClickListener {
+            inputPrice.setText("")
+            inputPorcentagem.setText("")
+            inputPessoas.setText("")
         }
 
         btnCalcular.setOnClickListener {
+            val strPesssoas: String = inputPessoas.text.toString()
             val strPrice: String = inputPrice.text.toString()
             val strPorcentagem: String = inputPorcentagem.text.toString()
 
-            if (strPrice == "" || strPorcentagem == "") {
+            if (strPrice == "" || strPorcentagem == "" || strPesssoas == "") {
                 Snackbar.make(
                     inputPrice,
                     "Preencha todos os campos",
@@ -52,10 +61,12 @@ class MainActivity : AppCompatActivity() {
 
                 val price = strPrice.toFloat()
                 val porcentagem = strPorcentagem.toFloat()
+                val pessoas = strPesssoas.toFloat()
 
                 val intent = Intent(this, ResultadoActivity::class.java)
                 intent.putExtra("KEY_PRICE", price)
                 intent.putExtra("KEY_PORCENTAGEM", porcentagem)
+                intent.putExtra("KEY_PESSOAS", pessoas)
                 startActivity(intent)
             }
         }
