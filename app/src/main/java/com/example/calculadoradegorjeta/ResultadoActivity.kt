@@ -14,29 +14,26 @@ class ResultadoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_resultado)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
 
-        val valorPrice = intent.getFloatExtra("KEY_PRICE", 0f)
-        val valorPorcentagem = intent.getFloatExtra("KEY_PORCENTAGEM", 0f)
-        val valorPorPessoa = intent.getFloatExtra("KEY_PESSOAS", 0f)
+        val price = intent.getFloatExtra("KEY_PRICE", 0f)
+        val percentage = intent.getIntExtra("KEY_PERCENTAGE", 0)
+        val numberOfPeople = intent.getIntExtra("KEY_PEOPLE", 0)
 
-        val porcentagem = valorPrice * (valorPorcentagem / 100)
-        val totalValor = porcentagem + valorPrice
-        val valorPessoa = totalValor / valorPorPessoa
+        val calculation = price * (percentage / 100)
+        val totalCalculation = calculation + price
+        val pricePerPeople = totalCalculation / numberOfPeople
 
 
-        val tvPrecoPessoa = findViewById<TextView>(R.id.tv_valor_por_pessoa)
-        val tvPorcentagem = findViewById<TextView>(R.id.tv_porcetagem_valor)
-        val tvtotalValor = findViewById<TextView>(R.id.tv_total_valor)
-        val btnNovoCal = findViewById<Button>(R.id.btn_novo_calculo)
+        val tvPrice = findViewById<TextView>(R.id.tv_price)
+        val tvPricePerPerson = findViewById<TextView>(R.id.tv_price_per_person)
+        val tvPercentage = findViewById<TextView>(R.id.tv_percentage)
+        val tvNumberPeople = findViewById<TextView>(R.id.tv_number_of_people)
+        val btnNovoCal = findViewById<Button>(R.id.btn_new_calculation)
 
-        tvtotalValor.text = ("%.2f").format(totalValor)
-        tvPorcentagem.text = ("%.2f").format(porcentagem)
-        tvPrecoPessoa.text = ("%.2f").format(valorPessoa)
+        tvPrice.text = price.toString()
+        tvNumberPeople.text = numberOfPeople.toString()
+        tvPercentage.text = percentage.toString() + "%"
+        tvPricePerPerson.text = ("%.2f").format(pricePerPeople)
 
         btnNovoCal.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)

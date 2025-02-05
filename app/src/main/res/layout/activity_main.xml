@@ -8,22 +8,20 @@
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:id="@+id/header_inicio"
+        android:id="@+id/header_start"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="130dp"
         android:background="@drawable/gradiente_bg"
-        android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Calculadora de gorjeta."
+            android:layout_margin="16dp"
+            android:text="Tip Calculator."
             android:textColor="@color/black"
             android:textSize="30sp"
             android:textStyle="bold" />
@@ -31,24 +29,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Quer saber quanto de gorjeta vai gastar?"
+            android:layout_marginStart="16dp"
+            android:text="Fill in below to calculate your tip."
             android:textColor="@color/white"
-            android:textSize="16dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:textColor="@color/black"
-            android:text="Preecha abaixo para calcular sua gorjeta."/>
-
-
+            android:textStyle="bold" />
     </LinearLayout>
 
-
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_preco"
+        android:id="@+id/til_price"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -57,7 +45,7 @@
         app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header_inicio">
+        app:layout_constraintTop_toBottomOf="@+id/header_start">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edt_price_tip"
@@ -65,12 +53,12 @@
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_bg"
             android:drawableEnd="@drawable/payments"
-            android:hint="Preço (ex: 125.50)"
+            android:hint="Price e.g. 125.50"
             android:inputType="numberDecimal" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_pessoas"
+        android:id="@+id/til_people"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -79,21 +67,21 @@
         app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/til_preco">
+        app:layout_constraintTop_toBottomOf="@+id/til_price">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edt_numero_pessoas"
+            android:id="@+id/edt_number_of_people"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_bg"
             android:drawableEnd="@drawable/people"
-            android:hint="Numero de pessoas (ex: 15)"
+            android:hint="Number of people e.g. 4"
             android:inputType="number"
             android:maxLength="2" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_porcentagem"
+        android:id="@+id/til_percentage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -102,27 +90,27 @@
         app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/til_pessoas">
+        app:layout_constraintTop_toBottomOf="@+id/til_people">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edt_porcetagem_tip"
+            android:id="@+id/edt_percentage_of_tip"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_bg"
             android:drawableEnd="@drawable/percent"
-            android:hint="Porcentagem (ex: 10)"
+            android:hint="Percentage e.g. 10"
             android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guide_centro"
+        android:id="@+id/guide_center"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guide_esquerda"
+        android:id="@+id/guide_left"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_marginStart="16dp"
@@ -130,98 +118,85 @@
         app:layout_constraintGuide_percent="0.34" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guide_direita"
+        android:id="@+id/guide_right"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_marginStart="16dp"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.66" />
 
-    <LinearLayout
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/btn_linpar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_opcao_dois">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/rounded_img_first"
-            android:src="@drawable/main" />
-
-    </LinearLayout>
-
-
-    <Button
-        android:id="@+id/btn_opcao_um"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_option_one"
+        style="@style/Widget.Material3.Button.OutlinedButton"
         android:layout_width="0dp"
         android:layout_height="52dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="4dp"
-        android:backgroundTint="@color/secondColor"
         android:text="10%"
+        android:textColor="@color/secondColor"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/guide_esquerda"
-        app:layout_constraintStart_toStartOf="@id/til_porcentagem"
-        app:layout_constraintTop_toBottomOf="@+id/til_porcentagem" />
+        app:layout_constraintEnd_toStartOf="@+id/guide_left"
+        app:layout_constraintStart_toStartOf="@id/til_percentage"
+        app:layout_constraintTop_toBottomOf="@+id/til_percentage" />
 
-    <Button
-        android:id="@+id/btn_opcao_dois"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_option_two"
+        style="@style/Widget.Material3.Button.OutlinedButton"
         android:layout_width="0dp"
         android:layout_height="52dp"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="@color/secondColor"
-        android:gravity="center"
-        android:layout_marginEnd="2dp"
         android:layout_marginStart="2dp"
-        android:text="15%"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/guide_direita"
-        app:layout_constraintStart_toEndOf="@+id/guide_esquerda"
-        app:layout_constraintTop_toBottomOf="@+id/til_porcentagem" />
-
-    <Button
-        android:id="@+id/btn_opcao_tres"
-        android:layout_width="0dp"
-        android:layout_height="52dp"
         android:layout_marginTop="16dp"
-        android:layout_marginStart="4dp"
-        android:backgroundTint="@color/secondColor"
-        android:text="20%"
+        android:layout_marginEnd="2dp"
+        android:gravity="center"
+        android:text="15%"
+        android:textColor="@color/secondColor"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@id/til_porcentagem"
-        app:layout_constraintStart_toStartOf="@+id/guide_direita"
-        app:layout_constraintTop_toBottomOf="@+id/til_porcentagem" />
+        app:layout_constraintEnd_toStartOf="@+id/guide_right"
+        app:layout_constraintStart_toEndOf="@+id/guide_left"
+        app:layout_constraintTop_toBottomOf="@+id/til_percentage" />
 
-    <Button
-        android:id="@+id/btn_calcular"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_option_three"
+        style="@style/Widget.Material3.Button.OutlinedButton"
         android:layout_width="0dp"
         android:layout_height="52dp"
         android:layout_marginStart="4dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        android:text="20%"
+        android:textColor="@color/secondColor"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@id/til_percentage"
+        app:layout_constraintStart_toStartOf="@+id/guide_right"
+        app:layout_constraintTop_toBottomOf="@+id/til_percentage" />
+
+    <Button
+        android:id="@+id/btn_calculate"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="4dp"
         android:layout_marginEnd="16dp"
-        android:text="Calcular"
+        android:layout_marginBottom="16dp"
+        android:text="Calculate"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guide_centro" />
+        app:layout_constraintStart_toStartOf="@+id/guide_center" />
 
-    <Button
-        android:id="@+id/btn_linpar"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_clean"
+        style="@style/Widget.Material3.Button.OutlinedButton"
         android:layout_width="0dp"
         android:layout_height="52dp"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
         android:layout_marginEnd="4dp"
-        android:text="Limpar"
+        android:layout_marginBottom="16dp"
+        android:text="Clean"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guide_centro"
+        app:layout_constraintEnd_toStartOf="@+id/guide_center"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
