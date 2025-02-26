@@ -15,20 +15,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
 
         val inputPrice = findViewById<TextInputEditText>(R.id.edt_price_tip)
-        val inputPorcentagem = findViewById<TextInputEditText>(R.id.edt_porcetagem_tip)
-        val inputPessoas = findViewById<TextInputEditText>(R.id.edt_numero_pessoas)
-        val btnLimpar = findViewById<Button>(R.id.btn_linpar)
-        val btnCalcular = findViewById<Button>(R.id.btn_calcular)
-        val btnOpcaoUm = findViewById<Button>(R.id.btn_opcao_um)
-        val btnOpcaoDois = findViewById<Button>(R.id.btn_opcao_dois)
-        val btnOpcaoTres = findViewById<Button>(R.id.btn_opcao_tres)
+        val inputPorcentagem = findViewById<TextInputEditText>(R.id.edt_percentage_of_tip)
+        val inputPessoas = findViewById<TextInputEditText>(R.id.edt_number_of_people)
+        val btnLimpar = findViewById<Button>(R.id.btn_clean)
+        val btnCalcular = findViewById<Button>(R.id.btn_calculate)
+        val btnOpcaoUm = findViewById<Button>(R.id.btn_option_one)
+        val btnOpcaoDois = findViewById<Button>(R.id.btn_option_two)
+        val btnOpcaoTres = findViewById<Button>(R.id.btn_option_three)
 
         btnOpcaoUm.setOnClickListener {
             inputPorcentagem.setText("10")
@@ -47,26 +42,26 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnCalcular.setOnClickListener {
-            val strPesssoas: String = inputPessoas.text.toString()
-            val strPrice: String = inputPrice.text.toString()
-            val strPorcentagem: String = inputPorcentagem.text.toString()
+            val strPesssoas = inputPessoas.text.toString()
+            val strPrice = inputPrice.text.toString()
+            val strPorcentagem = inputPorcentagem.text.toString()
 
-            if (strPrice == "" || strPorcentagem == "" || strPesssoas == "") {
+            if (strPrice.isEmpty() && strPorcentagem.isEmpty() && strPesssoas.isEmpty()) {
                 Snackbar.make(
                     inputPrice,
-                    "Preencha todos os campos",
+                    "FIIL IN ALL FIELDS",
                     Snackbar.LENGTH_LONG
                 ).show()
             } else {
 
                 val price = strPrice.toFloat()
-                val porcentagem = strPorcentagem.toFloat()
-                val pessoas = strPesssoas.toFloat()
+                val porcentagem = strPorcentagem.toInt()
+                val pessoas = strPesssoas.toInt()
 
                 val intent = Intent(this, ResultadoActivity::class.java)
                 intent.putExtra("KEY_PRICE", price)
-                intent.putExtra("KEY_PORCENTAGEM", porcentagem)
-                intent.putExtra("KEY_PESSOAS", pessoas)
+                intent.putExtra("KEY_PERCENTAGE", porcentagem)
+                intent.putExtra("KEY_PEOPLE", pessoas)
                 startActivity(intent)
             }
         }

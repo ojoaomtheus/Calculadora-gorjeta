@@ -3,8 +3,8 @@
     <corners
         android:topLeftRadius="0dp"
         android:topRightRadius="0dp"
-        android:bottomLeftRadius="56dp"
-        android:bottomRightRadius="56dp"/>
+        android:bottomLeftRadius="30dp"
+        android:bottomRightRadius="30dp"/>
 
     <gradient
         android:startColor="@color/primaryColor"
